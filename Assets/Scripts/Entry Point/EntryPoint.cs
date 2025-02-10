@@ -5,9 +5,11 @@ using UnityEngine;
 public class EntryPoint : MonoBehaviour
 {
     [SerializeField] private PlayerDataConfig _playerDataConfig;
+    [SerializeField] private FortuneWheelConfig _wheelConfig;
 
     [Space]
     [SerializeField] private CurrencyPanel _currencyPanel;
+    [SerializeField] private FortuneWheelController _fortuneWheelController;
 
     void Start()
     {
@@ -15,5 +17,6 @@ public class EntryPoint : MonoBehaviour
         playerData.Init(_playerDataConfig);
 
         _currencyPanel.Init(playerData);
+        _fortuneWheelController.Init(playerData, _wheelConfig);
     }
 }
