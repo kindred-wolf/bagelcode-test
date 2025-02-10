@@ -18,8 +18,6 @@ public class FortuneWheelController : MonoBehaviour
     private FortuneWheelConfig _wheelConfig;
     private RewardPopup _rewardPopup;
 
-    private bool _isSpinning;
-
     private List<int> _rewardsList = new();
     private List<FortuneWheelReward> _rewardsObjects = new();
 
@@ -84,6 +82,8 @@ public class FortuneWheelController : MonoBehaviour
     {
         _spinButton.interactable = false;
 
+        AudioController.Play(AudioType.WheelSpin);
+
         int totalSegments = _rewardsList.Count;
         float elapsedTime = 0f;
         float totalRotation = 360f * _wheelConfig.SpinsAmount;
@@ -126,6 +126,7 @@ public class FortuneWheelController : MonoBehaviour
     private void GiveRewards(int reward)
     {
         _playerData.CoinsAmount.Value += reward;
+        AudioController.Play(AudioType.Win);
     }
 
     private void RestartWheel()

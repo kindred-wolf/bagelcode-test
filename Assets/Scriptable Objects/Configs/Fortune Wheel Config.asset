@@ -17,27 +17,27 @@ MonoBehaviour:
   StepValue: 1000
   RewardsCount: 16
   SpinsAmount: 5
-  AnimationTime: 5
+  AnimationTime: 10
   SpinningCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0.89785296
+      outSlope: 0.89785296
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.12083333
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.010885093
+      outSlope: -0.010885093
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.21666664
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
