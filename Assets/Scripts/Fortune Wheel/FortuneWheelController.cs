@@ -69,11 +69,6 @@ public class FortuneWheelController : MonoBehaviour
 
     private void Spin()
     {
-        if (_isSpinning)
-        {
-            return;
-        }
-
         int rewardIndex = _random.Next(0, _rewardsList.Count);
         int reward = _rewardsList[rewardIndex];
         Action callback = () =>
@@ -87,7 +82,7 @@ public class FortuneWheelController : MonoBehaviour
 
     private IEnumerator SpinAnimation(int rewardIndex, Action onComplete)
     {
-        _isSpinning = true;
+        _spinButton.interactable = false;
 
         int totalSegments = _rewardsList.Count;
         float elapsedTime = 0f;
@@ -141,6 +136,6 @@ public class FortuneWheelController : MonoBehaviour
         _wheelTransform.rotation = Quaternion.identity;
 
         SetupWheel();
-        _isSpinning = false;
+        _spinButton.interactable = true;
     }
 }
