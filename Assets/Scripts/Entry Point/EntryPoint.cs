@@ -9,6 +9,7 @@ public class EntryPoint : MonoBehaviour
 
     [Space]
     [SerializeField] private CurrencyPanel _currencyPanel;
+    [SerializeField] private RewardPopup _rewardPopup;
     [SerializeField] private FortuneWheelController _fortuneWheelController;
 
     void Start()
@@ -17,6 +18,6 @@ public class EntryPoint : MonoBehaviour
         playerData.Init(_playerDataConfig);
 
         _currencyPanel.Init(playerData);
-        _fortuneWheelController.Init(playerData, _wheelConfig);
+        _fortuneWheelController.Init(playerData, _wheelConfig, _rewardPopup);
     }
 }

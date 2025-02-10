@@ -1,10 +1,6 @@
-using Game.Scripts.Utils;
-using Game.Scripts.Utils.Extensions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,20 +9,25 @@ public class FortuneWheelController : MonoBehaviour
     [SerializeField] private Transform _wheelTransform;
     [SerializeField] private Transform _rewardsContent;
     [SerializeField] private Button _spinButton;
+
     [Space]
     [SerializeField] private FortuneWheelReward _rewardPrefab;
 
     private System.Random _random = new();
     private PlayerData _playerData;
     private FortuneWheelConfig _wheelConfig;
+    private RewardPopup _rewardPopup;
+
+    private bool _isSpinning;
 
     private List<int> _rewardsList = new();
     private List<FortuneWheelReward> _rewardsObjects = new();
 
-    public void Init(PlayerData playerData, FortuneWheelConfig config)
+    public void Init(PlayerData playerData, FortuneWheelConfig config, RewardPopup rewardPopup)
     {
         _playerData = playerData;
         _wheelConfig = config;
+        _rewardPopup = rewardPopup;
 
         SetupWheel();
     }
@@ -68,12 +69,17 @@ public class FortuneWheelController : MonoBehaviour
 
     private void Spin()
     {
+        if (_isSpinning)
+        {
+            return;
+        }
+
         int rewardIndex = _random.Next(0, _rewardsList.Count);
         int reward = _rewardsList[rewardIndex];
         Action callback = () =>
         {
             GiveRewards(reward);
-            //RestartWheel();
+            _rewardPopup.Init(reward, RestartWheel);
         };
 
         StartCoroutine(SpinAnimation(rewardIndex, callback));
@@ -81,6 +87,8 @@ public class FortuneWheelController : MonoBehaviour
 
     private IEnumerator SpinAnimation(int rewardIndex, Action onComplete)
     {
+        _isSpinning = true;
+
         int totalSegments = _rewardsList.Count;
         float elapsedTime = 0f;
         float totalRotation = 360f * _wheelConfig.SpinsAmount;
@@ -133,5 +141,6 @@ public class FortuneWheelController : MonoBehaviour
         _wheelTransform.rotation = Quaternion.identity;
 
         SetupWheel();
+        _isSpinning = false;
     }
 }
