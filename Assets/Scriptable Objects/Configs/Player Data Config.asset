@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63026440ae570e4c93ca61a3a48fff3, type: 3}
   m_Name: Player Data Config
   m_EditorClassIdentifier: 
-  DefaultCoins: 1000
+  DefaultCoins: 0
