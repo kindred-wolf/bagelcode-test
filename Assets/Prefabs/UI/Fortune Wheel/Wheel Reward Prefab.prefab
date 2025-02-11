@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 4550485548647979052}
   - component: {fileID: 4679162324593207000}
   m_Layer: 5
-  m_Name: Reward Prefab
+  m_Name: Wheel Reward Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

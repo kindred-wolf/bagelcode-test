@@ -11,7 +11,7 @@ public class EntryPoint : MonoBehaviour
     [Space]
     [SerializeField] private RewardPopup _rewardPopup;
     [SerializeField] private GameplayScreen _gameplayScreen;
-    [SerializeField] private FortuneWheelController _fortuneWheelController;
+    [SerializeField] private FortuneWheelView _fortuneWheelView;
 
     void Start()
     {
@@ -19,7 +19,9 @@ public class EntryPoint : MonoBehaviour
         playerData.Init(_playerDataConfig);
 
         _gameplayScreen.Init(playerData);
-        _fortuneWheelController.Init(playerData, _wheelConfig, _rewardPopup);
 
+        FortuneWheelModel model = new();
+        FortuneWheelController fortuneWheelController = new(model, playerData, _wheelConfig);
+        _fortuneWheelView.Init(fortuneWheelController, _rewardPopup);
     }
 }

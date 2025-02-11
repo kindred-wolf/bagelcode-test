@@ -239,7 +239,7 @@ MonoBehaviour:
   _wheelConfig: {fileID: 11400000, guid: a9d7e886afa82a840b20b5404cb33864, type: 2}
   _rewardPopup: {fileID: 7350605024424141154}
   _gameplayScreen: {fileID: 766923267}
-  _fortuneWheelController: {fileID: 868901791}
+  _fortuneWheelView: {fileID: 868901793}
 --- !u!4 &440881938
 Transform:
   m_ObjectHideFlags: 0
@@ -712,7 +712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 868901790}
   - component: {fileID: 868901792}
-  - component: {fileID: 868901791}
+  - component: {fileID: 868901793}
   m_Layer: 5
   m_Name: Fortune Wheel
   m_TagString: Untagged
@@ -742,22 +742,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -30, y: -400}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &868901791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 868901789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f59eb0926cb7ea947a6cba65cdd5f2e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _wheelTransform: {fileID: 1368862719}
-  _rewardsContent: {fileID: 1155832492}
-  _spinButton: {fileID: 2061128268}
-  _rewardPrefab: {fileID: 4679162324593207000, guid: 8252240b5977d3f45b9c3cb858857b4f, type: 3}
 --- !u!222 &868901792
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -766,6 +750,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868901789}
   m_CullTransparentMesh: 1
+--- !u!114 &868901793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868901789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5113b983b0cc9e74bb7cb10ca09a3296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spinButton: {fileID: 2061128268}
+  _wheelTransform: {fileID: 1368862719}
+  _rewardsContent: {fileID: 1155832492}
+  _rewardPrefab: {fileID: 4679162324593207000, guid: 8252240b5977d3f45b9c3cb858857b4f, type: 3}
 --- !u!1 &1155832491
 GameObject:
   m_ObjectHideFlags: 0
