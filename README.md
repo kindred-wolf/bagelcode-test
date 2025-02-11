@@ -1,4 +1,5 @@
 # Thank you for your time reviewing my test assignment!
+Unity version used: 2022.3.57 LTS
 
 Here will be provided a small description of projects functionality. 
 I had some troubles with UI of the wheel, so now it won't scale as intended. 
