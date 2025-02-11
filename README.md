@@ -31,3 +31,14 @@ First of all, the main mechanic.
 3. After wheel fully stop, reward will be added to player's account and saved to Prefs (can be changed to be saved in json or sent to the server).
 4. RewardPopup will be shown, telling player which reward he get.
 5. After player clicks "Claim" button, FortuneWheelView will reset and we will go to p.1.
+
+<p> Model can be easily replaced with another logic without any problems, 
+as long as the new class will implement IFortuneWheelModule interface.
+
+# Currency Panel
+Player CurrencyPanel subscribes to onValueChanged event in ReactiveProperty of PlayerData.CoinsAmount
+and updates UI every time the value was changed.
+
+# UI
+UI is divided into two different canvases - one for UI and one for gameplay wheel. 
+Just simple canvas grouping
