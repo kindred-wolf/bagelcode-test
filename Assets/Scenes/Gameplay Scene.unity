@@ -1422,6 +1422,12 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1313083538531591154, guid: 221a3759134b96042a84e4f8a1a2d533, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 7350605024424141160}
+    - targetCorrespondingSourceObject: {fileID: 8547974276051903489, guid: 221a3759134b96042a84e4f8a1a2d533, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 7350605024424141159}
     - targetCorrespondingSourceObject: {fileID: 5197022864492910771, guid: 221a3759134b96042a84e4f8a1a2d533, type: 3}
       insertIndex: 1
       addedObject: {fileID: 7350605024424141156}
@@ -1460,6 +1466,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioType: 0
+--- !u!1 &7350605024424141157 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8547974276051903489, guid: 221a3759134b96042a84e4f8a1a2d533, type: 3}
+  m_PrefabInstance: {fileID: 7350605024424141152}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7350605024424141158 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1313083538531591154, guid: 221a3759134b96042a84e4f8a1a2d533, type: 3}
+  m_PrefabInstance: {fileID: 7350605024424141152}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7350605024424141159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350605024424141157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c71f8512f20709499f9c39546228e72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playDelay: 0.25
+  _startScale: 0
+  _pulseScale: 1.1
+  _targetScale: 1
+  _pulseTime: 0.25
+  _transitionTotalTime: 0.35
+--- !u!114 &7350605024424141160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350605024424141158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ffd19c3f2b46847b1a268ac7d8377f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startDelay: 0
+  _startAlpha: 0
+  _targetAlpha: 0.92
+  _transitionTime: 0.3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
