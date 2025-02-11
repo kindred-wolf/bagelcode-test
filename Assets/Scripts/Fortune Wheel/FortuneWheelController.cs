@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -108,23 +109,41 @@ public class FortuneWheelController : MonoBehaviour
 
     public List<int> GenerateRewards()
     {
-        // We can change that to get list of possible rewards from backend
+        // We can change that to get list of possible rewards from backend, so it can't be cheated
 
-        HashSet<int> rewards = new();
-        int rangeSize = (_wheelConfig.BiggestValue - _wheelConfig.LowestValue) / _wheelConfig.StepValue + 1;
+        HashSet<int> rewards = new HashSet<int>();
+        List<int> possibleValues = new List<int>();
 
-        if (_wheelConfig.RewardsCount > rangeSize)
+        for (int value = _wheelConfig.LowestValue; value <= _wheelConfig.BiggestValue; value += 100)
         {
-            throw new ArgumentException("Not enough unique values to generate the required rewards.");
+            possibleValues.Add(value);
         }
 
-        while (rewards.Count < _wheelConfig.RewardsCount)
+        while (rewards.Count < _wheelConfig.RewardsCount && possibleValues.Count > 0)
         {
-            int randomValue = _wheelConfig.LowestValue + _random.Next(rangeSize) * _wheelConfig.StepValue;
-            rewards.Add(randomValue);
+            int index = _random.Next(possibleValues.Count);
+            int selectedValue = possibleValues[index];
+
+            if (rewards.Count == 0 || IsValidReward(rewards, selectedValue))
+            {
+                rewards.Add(selectedValue);
+                possibleValues.RemoveAt(index);
+            }
         }
 
         return new List<int>(rewards);
+    }
+
+    private bool IsValidReward(HashSet<int> rewards, int value)
+    {
+        foreach (int reward in rewards)
+        {
+            if (Math.Abs(reward - value) < _wheelConfig.StepValue)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     private void GiveRewards(int reward)
