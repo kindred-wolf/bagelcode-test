@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EntryPoint : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class EntryPoint : MonoBehaviour
     [SerializeField] private FortuneWheelConfig _wheelConfig;
 
     [Space]
-    [SerializeField] private CurrencyPanel _currencyPanel;
     [SerializeField] private RewardPopup _rewardPopup;
+    [SerializeField] private GameplayScreen _gameplayScreen;
     [SerializeField] private FortuneWheelController _fortuneWheelController;
 
     void Start()
@@ -17,7 +18,8 @@ public class EntryPoint : MonoBehaviour
         PlayerData playerData = new();
         playerData.Init(_playerDataConfig);
 
-        _currencyPanel.Init(playerData);
+        _gameplayScreen.Init(playerData);
         _fortuneWheelController.Init(playerData, _wheelConfig, _rewardPopup);
+
     }
 }

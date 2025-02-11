@@ -8,6 +8,7 @@ public class PlayerData
 
     public void Init(PlayerDataConfig config)
     {
+        // Possible to change Prefs for web request
         int savedCoins = PlayerPrefs.GetInt(COINS_KEY, config.DefaultCoins);
         CoinsAmount = new(savedCoins);
 

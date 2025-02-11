@@ -67,6 +67,8 @@ public class FortuneWheelController : MonoBehaviour
 
     private void Spin()
     {
+        // Here we can request spin from backend and save
+
         int rewardIndex = _random.Next(0, _rewardsList.Count);
         int reward = _rewardsList[rewardIndex];
         Action callback = () =>
@@ -106,6 +108,8 @@ public class FortuneWheelController : MonoBehaviour
 
     public List<int> GenerateRewards()
     {
+        // We can change that to get list of possible rewards from backend
+
         HashSet<int> rewards = new();
         int rangeSize = (_wheelConfig.BiggestValue - _wheelConfig.LowestValue) / _wheelConfig.StepValue + 1;
 
